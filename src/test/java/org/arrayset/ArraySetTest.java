@@ -4,12 +4,18 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ArraySetTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void sanityTest() throws Exception {
+        assertFalse(false);
+        assertTrue(true);
+        assertEquals(1, 1);
+    }
 
     @Test
     public void shouldReturnEmptyArrayIfNothingIsInserted() throws Exception {
