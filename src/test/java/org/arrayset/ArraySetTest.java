@@ -22,13 +22,13 @@ public class ArraySetTest {
     public void shouldThrowErrorIfInvalidElementIsInserted() throws Exception {
         ArraySet set = new ArraySet();
         thrown.expect(NullPointerException.class);
-        set.add(null);
+        set.addNewElemnt(null);
     }
 
     @Test
     public void shouldReturnArrayOfSize1IfOneElementIsInserted() throws Exception {
         ArraySet set = new ArraySet();
-        set.add(403);
+        set.addNewElemnt(403);
         Integer[] actualArray = set.toArray();
         assertEquals(1, actualArray.length);
     }
@@ -36,7 +36,7 @@ public class ArraySetTest {
     @Test
     public void shouldReturnArrayWithElementInserted() throws Exception {
         ArraySet set = new ArraySet();
-        set.add(432);
+        set.addNewElemnt(432);
         Integer[] intArray = set.toArray();
         assertArrayEquals(new Integer[]{432}, intArray);
     }
@@ -44,9 +44,9 @@ public class ArraySetTest {
     @Test
     public void shouldReturnArrayWithMultipleElementsInserted() throws Exception {
         ArraySet set = new ArraySet();
-        set.add(432);
-        set.add(934);
-        set.add(394);
+        set.addNewElemnt(432);
+        set.addNewElemnt(934);
+        set.addNewElemnt(394);
         Integer[] intArray = set.toArray();
         assertArrayEquals(new Integer[]{432, 934, 394}, intArray);
     }
@@ -54,15 +54,15 @@ public class ArraySetTest {
     @Test
     public void shouldNotStoreDuplicateElementsInTheArray() throws Exception {
         ArraySet set = new ArraySet();
-        set.add(432);
-        set.add(432);
-        set.add(432);
-        set.add(934);
-        set.add(934);
-        set.add(934);
-        set.add(394);
-        set.add(394);
-        set.add(394);
+        set.addNewElemnt(432);
+        set.addNewElemnt(432);
+        set.addNewElemnt(432);
+        set.addNewElemnt(934);
+        set.addNewElemnt(934);
+        set.addNewElemnt(934);
+        set.addNewElemnt(394);
+        set.addNewElemnt(394);
+        set.addNewElemnt(394);
         Integer[] intArray = set.toArray();
         assertArrayEquals(new Integer[]{432, 934, 394}, intArray);
     }
