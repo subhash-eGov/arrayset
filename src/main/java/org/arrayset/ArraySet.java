@@ -1,8 +1,6 @@
 package org.arrayset;
 
 
-import java.util.Arrays;
-
 public class ArraySet {
     private Integer[] elements;
 
@@ -14,21 +12,38 @@ public class ArraySet {
         return this.elements;
     }
 
-    private Boolean exists(Integer element) {
-        for (Integer el : elements) {
-            if (el.equals(element)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void add(Integer element) {
-        if (exists(element)) {
+        int i = 0;
+        int e = 0;
+        if (this.elements.length == 0) {
+            if (element == null) {
+                throw new NullPointerException();
+            }
+            this.elements = new Integer[1];
+            this.elements[0] = element;
             return;
         }
-        int newSize = this.elements.length + 1;
-        this.elements = Arrays.copyOf(this.elements, newSize);
-        this.elements[newSize - 1] = Integer.parseInt(element.toString());
+        for (i = 0; i < this.elements.length; i++) {
+            if (this.elements[i].equals(element)) {
+                e = 1;
+            } else {
+                continue;
+            }
+        }
+        if (e == 0) {
+            Integer[] anotherElements = new Integer[this.elements.length + 1];
+            for (i = 0; i < this.elements.length; i++) {
+                anotherElements[i] = this.elements[i];
+            }
+            if (element == null) {
+                throw new NullPointerException();
+            } else {
+                anotherElements[this.elements.length] = element;
+                this.elements = anotherElements;
+            }
+
+        } else {
+
+        }
     }
 }
